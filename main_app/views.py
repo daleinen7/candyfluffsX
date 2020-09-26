@@ -1,10 +1,20 @@
 from django.shortcuts import render, redirect
+from django.views.generic import ListView, DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from .models import Product
 
 # Create your views here.
 def home(request):
   return render(request, 'home.html')
+
+class ProductsList(ListView):
+  model = Product
+  template = 'product_list.html'
+
+class ProductDetail(DetailView):
+  model = Product
+  template = 'product_detail.html'
 
 def signup(request):
   error_message = ''
