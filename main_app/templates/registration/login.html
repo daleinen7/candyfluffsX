@@ -1,12 +1,23 @@
 {% extends 'base.html' %}
+<!--  -->
+{% load static %}
+<!--  -->
+{% block title %}Login{% endblock %}
+<!--  -->
+{% block tagline %}
+<p>Have an account? Login! (ㆁᴗㆁ✿)</p>
+{% endblock %}
+<!--  -->
 {% block content %}
 
 <h1>Log In</h1>
 <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" class="btn" value="login">
-    <input type="hidden" name="next" value="{{ next }}">
-  </form>
-  
+  {% csrf_token %} {{ form.as_p }}
+  <input type="submit" class="btn" value="login" />
+  <input type="hidden" name="next" value="{{ next }}" />
+</form>
+<small
+  >Don't have an account yet?
+  <a href="{% url 'signup' %}">Let's make one!</a></small
+>
 {% endblock %}
