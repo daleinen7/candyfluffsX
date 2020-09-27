@@ -8,7 +8,7 @@
     <a href="{% url 'product_detail' product.id %}">{{ product.title }}</a>
   </li>
   <li>
-    <img src="{{ product.thumbnail }}" alt="testing yo" />
+    <img src="{{ product.thumbnail.url }}" alt="testing yo" />
   </li>
   {% endfor %}
 </ul>

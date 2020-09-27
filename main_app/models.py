@@ -26,7 +26,8 @@ class Product(models.Model):
     title = models.CharField(max_length=270)
     price = models.IntegerField()
     description = models.TextField()
-    thumbnail = models.FileField(upload_to='uploads/')
+    thumbnail = models.ImageField(upload_to = 'media/')
+    # thumbnail = models.FileField(upload_to='uploads/')
     fandom = models.CharField(max_length=1, choices=FANDOMS),
     product_type = models.CharField(max_length=1, choices=PRODUCT_TYPES)
     variation = models.CharField(max_length=200)

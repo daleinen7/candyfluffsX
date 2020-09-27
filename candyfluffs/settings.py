@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
+import environ
+environ.Env()
+environ.Env.read_env()
 
 import os
 
@@ -78,8 +81,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'candyfluffs',
-        'USER': 'postgres',
-        'PASSWORD': 'W0w4ng13!',
+        'USER': os.environ['USERNAME'],
+        'PASSWORD': os.environ['PASSWORD'],
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
@@ -126,8 +129,10 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS =[
     os.path.join(BASE_DIR, 'static')
 ]
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
-MEDIA_URL = '/uploads/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = '/'
 
