@@ -32,7 +32,7 @@ class Product(models.Model):
     variation = models.CharField(max_length=200)
     stock = models.IntegerField()
     sku = models.IntegerField()
-    weight = models.IntegerField() # is integer right here?
+    weight = models.IntegerField() # is integer right here? yes, the weight will be in ounces as whole numbers!
     size = models.CharField(max_length=200)
     created_date = models.DateTimeField('Created on')
 

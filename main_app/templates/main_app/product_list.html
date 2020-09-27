@@ -1,9 +1,15 @@
 {% extends 'base.html' %}
+<!--  -->
 {% block content %}
-    <h1>Products</h1>
-    <ul>
-        {% for product in product_list %}
-            <li><a href="{% url 'product_detail' product.id %}">{{ product.title }}</a></li>
-        {% endfor %}
-    </ul>
+<h1>Products</h1>
+<ul>
+  {% for product in product_list %}
+  <li>
+    <a href="{% url 'product_detail' product.id %}">{{ product.title }}</a>
+  </li>
+  <li>
+    <img src="{{ product.thumbnail }}" alt="testing yo" />
+  </li>
+  {% endfor %}
+</ul>
 {% endblock content %}
