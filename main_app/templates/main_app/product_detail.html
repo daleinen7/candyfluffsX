@@ -1,4 +1,11 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% load static %}
+<!--  -->
+{% block title %} {{ product.title }}{% endblock %}
+<!--  -->
+{% block tagline %}
+<p>{{ product.title }} (ㆁᴗㆁ✿)</p>
+{% endblock %}
+<!--  -->
 {% block content %}
     <h1>{{ product.title }}</h1>
     <img src="{{ product.thumbnail.url }}" alt="{{ product.title }} thumbnail">
