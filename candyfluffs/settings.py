@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'candyfluffs.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'candyfluffs',
         'USER': 'postgres',
         'PASSWORD': 'W0w4ng13!',
