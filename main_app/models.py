@@ -27,7 +27,7 @@ class Product(models.Model):
     price = models.IntegerField()
     description = models.TextField()
     thumbnail = models.ImageField()
-    fandom = models.CharField(max_length=1, choices=FANDOMS),
+    fandom = models.CharField(max_length=1, choices=FANDOMS)
     product_type = models.CharField(max_length=1, choices=PRODUCT_TYPES)
     variation = models.CharField(max_length=200)
     stock = models.IntegerField()
