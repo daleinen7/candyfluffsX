@@ -6,9 +6,12 @@ from .models import Product
 
 # Create your views here.
 def home(request):
-  return render(request, 'home.html')
+  products = Product.objects.all()
+  return render(request, 'home.html', {'products': products})
+
 def about(request):
   return render(request, 'about.html')
+
 def conventions(request):
   return render(request, 'conventions.html')
 
