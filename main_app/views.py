@@ -7,6 +7,10 @@ from .models import Product
 # Create your views here.
 def home(request):
   return render(request, 'home.html')
+def about(request):
+  return render(request, 'about.html')
+def conventions(request):
+  return render(request, 'conventions.html')
 
 class ProductsList(ListView):
   model = Product
