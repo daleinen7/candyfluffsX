@@ -17,7 +17,7 @@
   />
 </div>
 <div class="products">
-  {% for product in product_list %}
+  {% for product in products %}
   <h2>
     <a href="{% url 'product_detail' product.id %}">{{ product.title }}</a>
   </h2>
