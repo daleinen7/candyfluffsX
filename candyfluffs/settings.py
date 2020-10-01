@@ -9,11 +9,11 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
+import os
 import environ
 environ.Env()
 environ.Env.read_env()
 
-import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -81,6 +81,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'candyfluffs',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'W0w4ng13!',
         'USER': os.environ['USERNAME'],
         'PASSWORD': os.environ['PASSWORD'],
         'HOST': '127.0.0.1',
@@ -126,7 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS =[
+STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
