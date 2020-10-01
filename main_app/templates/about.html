@@ -4,9 +4,11 @@
 <!--  -->
 {% block title %} About Me{% endblock %}
 <!--  -->
-{% block tagline %}
-<p>Just a girl who likes to draw manga (ㆁᴗㆁ✿)</p>
-{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/about.css' %}" />
+{% endblock style %}
+<!--  -->
+{% block tagline %} Just a girl who likes to draw manga (ㆁᴗㆁ✿) {% endblock %}
 <!--  -->
 {% block content %}
 
@@ -17,7 +19,7 @@
 />
 
 <article>
-  <p>Hello my lovelies~</p>
+  <h1>Hello my lovelies~</h1>
   <p>
     I'm just a girl that loves to draw manga! I am an illustrator that grew up
     on manga and I'll forever be influenced by Sailor Moon, Skip Beat, Nao

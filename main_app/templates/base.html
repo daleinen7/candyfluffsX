@@ -8,8 +8,13 @@
       defer
       src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"
     ></script>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     {% block style %} {% endblock style %}
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
     <title>{% block title %} {% endblock title %}</title>
   </head>
   <body>
@@ -29,7 +34,7 @@
         ><a href="{% url 'home' %}"
           ><img src="{% static 'images/logo.png' %}" height="100px" />
         </a>
-        <p>{% block tagline %} {% endblock tagline %}</p></span
+        <p id="tagline">{% block tagline %} {% endblock tagline %}</p></span
       >
       <span class="icons">
         <i class="fas fa-search"></i>
@@ -48,13 +53,10 @@
         {% endif %}
       </ul>
     </nav>
-    <main>
-      <hr />
-      {% block content %} {% endblock %}
-      <hr />
-    </main>
+    <main>{% block content %} {% endblock %}</main>
     <footer>
       <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="#">Contact</a></li>
     </footer>
   </body>
 </html>

@@ -1,21 +1,21 @@
-{% extends 'base.html' %}{% load static %}
+{% extends 'base.html' %}
 <!--  -->
-{% load static %} {% block style %}
+{% load static %}
+<!--  -->
+{% block style %}
 <link rel="stylesheet" href="{% static 'css/product_list.css' %}" />
 {% endblock style %}
 <!--  -->
-{% block title %} Candy Fluffs{% endblock %} {% block tagline %}
-<p>Just a girl who likes to draw manga (ㆁᴗㆁ✿)</p>
-{% endblock %}
+{% block title %} Candy Fluffs{% endblock %}
+<!--  -->
+{% block tagline %} Just a girl who likes to draw manga (ㆁᴗㆁ✿) {% endblock %}
 <!--  -->
 {% block content %}
 
-<h1>Hi there. This is the home page!</h1>
-<div id="banner">
-  <img
-    src="{% static 'images/nothing.png' %}"
-    alt="This is the spot where a featured image would go"
-  />
+<div id="bannerContainer">
+  {% for banner in banners %}
+  <img id="banner" src="{{ banner.featured.url }}" alt="testing yo" />
+  {% endfor %}
 </div>
 
 <!-- PRODUCT GRID -->

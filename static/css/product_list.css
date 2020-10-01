@@ -3,6 +3,17 @@ main {
   width: 80%;
   margin: auto;
 }
+h1,
+h2,
+h3,
+p {
+  font-family: "Lato", sans-serif;
+  color: 5c5c5c;
+}
+#banner img {
+  width: 80%;
+  height: auto;
+}
 /* OVERLAY */
 .product_grid {
   display: grid;
