@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # ADD FANDOMS HERE * KEYS MUST BE UNIQUE *
 FANDOMS = (
@@ -22,6 +24,26 @@ PRODUCT_TYPES = (
 )
 
 # Create your models here.
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    billing_address = models.CharField(max_length=200)
+    default_shipping_address = models.CharField(max_length=200)
+    country = models.CharField(max_length=200)
+    phone = models.CharField(max_length=11)
+    signup_date = models.DateTimeField('Signed Up On')
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+
+
+@receiver(post_save, sender=User)
+def save_user_profile(sender, instance, **kwargs):
+    instance.profile.save()
 
 
 class Product(models.Model):
@@ -57,3 +79,19 @@ class AnimeCon(models.Model):
     eventTicets = models.URLField()
     description = models.TextField()
     created_date = models.DateTimeField('Created on')
+
+
+class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    total = models.IntegerField()
+    shipping_address = models.CharField(max_length=200)
+    order_address = models.CharField(max_length=200)
+    order_email = models.CharField(max_length=200)
+    order_date = models.DateTimeField('Order Date')
+    order_status = models.CharField(max_length=200)
+    notes = models.CharField(max_length=200)
+
+
+class OrderDetail(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
