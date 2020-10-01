@@ -1,7 +1,8 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %}{% load static %}
 <!--  -->
-{% load static %}
-
+{% load static %} {% block style %}
+<link rel="stylesheet" href="{% static 'css/product_list.css' %}" />
+{% endblock style %}
 <!--  -->
 {% block title %} Candy Fluffs{% endblock %} {% block tagline %}
 <p>Just a girl who likes to draw manga (ㆁᴗㆁ✿)</p>
@@ -16,12 +17,24 @@
     alt="This is the spot where a featured image would go"
   />
 </div>
-<div class="products">
+
+<!-- PRODUCT GRID -->
+<div class="product_grid">
   {% for product in products %}
-  <h2>
-    <a href="{% url 'product_detail' product.id %}">{{ product.title }}</a>
-  </h2>
-  <img src="{{ product.thumbnail.url }}" alt="testing yo" />
+  <a href="{% url 'product_detail' product.id %}">
+    <div class="product">
+      <!-- https://www.w3schools.com/css/tryit.asp?filename=trycss_css_image_overlay_fade -->
+      <img
+        class="product_image"
+        src="{{ product.thumbnail.url }}"
+        alt="testing yo"
+      />
+      <div class="overlay text">
+        <h2>{{ product.title }}</h2>
+        <h3>${{product.price }}</h3>
+      </div>
+    </div>
+  </a>
 
   {% endfor %}
 </div>
