@@ -30,9 +30,9 @@
           <i class="fab fa-twitter"></i>
         </a>
       </span>
-      <span id="logo"
+      <span id="logoGroup"
         ><a href="{% url 'home' %}"
-          ><img src="{% static 'images/logo.png' %}" height="100px" />
+          ><img id="logo" src="{% static 'images/logo.png' %}" height="100px" />
         </a>
         <p id="tagline">{% block tagline %} {% endblock tagline %}</p></span
       >
@@ -44,7 +44,13 @@
     </header>
     <nav>
       <ul>
-        <li><a href="{% url 'products' %}">Products</a></li>
+        <li><a href="{% url 'products' %}">Books</a></li>
+        <li><a href="{% url 'products' %}">Prints</a></li>
+        <li><a href="{% url 'products' %}">Charms</a></li>
+        <li><a href="{% url 'products' %}">Buttons</a></li>
+        <li><a href="{% url 'products' %}">Necahuals</a></li>
+        <li><a href="{% url 'products' %}">Stickers</a></li>
+        <li><a href="{% url 'conventions' %}">Conventions/Expos</a></li>
         {% if user.is_authenticated %}
         <li><a href="{% url 'logout' %}">Log Out</a></li>
         {% else %}
@@ -57,6 +63,15 @@
     <footer>
       <li><a href="{% url 'about' %}">About</a></li>
       <li><a href="#">Contact</a></li>
+      <div id="contactForm">
+        <h2>Candy Fluffs Updates!</h2>
+        <p>
+          Sign up to get updates about new products and when I’ll be at anime
+          conventions!
+        </p>
+        <form method="post" action=""></form>
+        <small>We never share any information with 3rd parties.</small>
+      </div>
     </footer>
   </body>
 </html>

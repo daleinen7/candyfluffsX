@@ -2,7 +2,19 @@ body {
   background-color: #fff8f5;
   overflow-x: hidden;
 }
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-bottom: solid 2px #f58f89;
+}
 main {
   width: 80%;
   margin: auto;
+}
+h1,
+h2,
+small,
+p {
+  font-family: "Lato", sans-serif;
 }

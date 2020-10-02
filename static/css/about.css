@@ -8,6 +8,29 @@ main {
   align-self: center;
   /* border: dotted 10px #f58f89; */
 }
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-bottom: solid 1px #f58f89;
+}
+#logoGroup {
+  display: flex;
+  flex-direction: column;
+}
+#logo {
+  display: flex;
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+}
+nav {
+  border-bottom: solid 1px #f58f89;
+}
+footer {
+  border-top: solid 1px #f58f89;
+}
 h1,
 h2,
 h3,
